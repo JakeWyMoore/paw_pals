@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Select Dog</title>
+
+    {% load static %}
+    <style>
+        /* MISC */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            color: #B5EAD7;
+            font-family: sans-serif;
+        }
+        h1 {
+            font-family: sans-serif;
+        }
+        h2 {   
+            font-family: sans-serif;         
+            color: #B5EAD7;
+        }
+        h3 { 
+            font-family: sans-serif;
+            font-size: 24px;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            background-color: #262626;
+            padding-top: 20px;
+        }
+        .header h1 {
+            margin-top: -20px;
+            padding: 15px 0;
+            color: white;
+        }
+        .logout {
+            float: left;
+            padding: 5px 0 0 50px;
+        }
+        .edit {
+            float: right;
+            padding-left: 155px;
+            padding: 5px 50px 0 0;
+        }
+
+        /* EDIT NAVIGATION */
+        .edit_nav {
+            width: 100%;
+            text-align: center;
+            background-color: #626262;
+            display: inline-block;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            }
+
+        li {
+            display: inline-block;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            color: #B5EAD7;
+        }
+        
+        /* PET SECTION */
+        .dog_container {
+            margin-top: 35px;
+            text-align: center;
+        }
+        .select_dog {
+            margin: 0 auto;
+            width: 400px;
+            display: block;
+            text-align: center;
+        }
+        .border {
+            border: solid;
+            margin: 25px 0;
+            padding: 35px 0;
+        }
+        .dog_info {
+            display: inline-block;
+            width: 50%;
+            margin-top: 35px;
+            vertical-align: top;
+            text-align: center;
+            word-wrap: break-all;
+        }
+        .dog_info h3 {
+            text-transform: uppercase;
+        }
+        .select_dog img {
+            display: inline-block;
+            height: 300px;
+            width: 300px;
+            object-fit: cover;
+        }
+        .add_new {
+            text-align: center;
+        }
+        .delete {
+            background-color: #e64747;
+        }
+        button {
+            display: inline-block;
+            font-family: sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            background-color: #B5EAD7;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 15px;
+            color: #262626;
+            outline: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container"></div>
+
+        <div class="header">
+            <div class="logout">            
+                <a href="/logout">Logout</a>
+            </div>
+            <div class="edit">            
+                <a href="/select_dog">Profile</a>
+            </div>
+            <h1>Edit Profile</h1>
+        </div>
+
+        <div class="edit_nav">
+            <ul>
+                <li><a href="/update_username">Username</a></li>
+                <li><a href="/update_email">Email</a></li>
+                <li><a href="/update_password">Password</a></li>
+                <li><a href="/add_dog">Add Dog</a></li>
+            </ul>
+        </div>
+
+        <div class="dog_container">
+
+            <div class="select_dog">
+                {% for dog in dogs %}
+                <div class="border">
+                    <img src="{{ dog.image.url }}">
+                    <div class="dog_info">
+                        <h3>{{ dog.dog_name }}</h3>
+                        <p>{{ dog.breed }}</p>
+                        <br>
+                        <h4>Bio:</h4><p>{{ dog.bio }}</p>
+                        <div class="buttons">
+                            <form action="/edit_dog/{{ dog.id }}">
+                                <button type="submit">Edit </button>
+                            </form>
+                            <form action="/delete/{{ dog.id }}">
+                                <button type="submit" class="delete">Delete </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>  
+        </div>
+    </div>
+</body>
+</html>

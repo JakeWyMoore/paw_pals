@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+
+    {% load static %}
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        h2 {
+            text-transform: capitalize;
+        }
+
+        a {
+            text-decoration: none;
+            color: royalblue;
+        }
+
+        .logout {
+            margin: -15px 0 15px;
+        }
+
+        .profile {
+            display: inline-block;
+            height: 250px;
+            width: 250px;
+        }
+
+        .profile img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Profile</h1>
+            <div class="logout">
+                <a href="/logout">Logout</a>
+            </div>
+            <div class="back">
+                <a href="/select_dog">Back</a>
+            </div>
+        </div>
+        <div class="profile">
+            <img src="{{ the_dog.image.url }}">
+            <h2>{{ the_dog.dog_name }}</h2>
+            <p>{{ the_dog.breed }}</p>
+            <p>{{ the_dog.bio }}</p>
+            <a href="/match">Make Pals!</a>
+        </div>
+    </div>
+</body>
+</html>

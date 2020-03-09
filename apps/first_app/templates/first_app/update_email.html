@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update Username</title>
+
+    {% load static %}
+    <style>
+    /* MISC */
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .container {
+        text-align: center;
+    }
+    a {
+        text-decoration: none;
+        color: #B5EAD7;
+        font-family: sans-serif;
+    }
+    h1 {
+        font-family: sans-serif;
+    }
+    h2 {   
+        font-family: sans-serif;         
+        color: #B5EAD7;
+    }
+    h3 { 
+        font-family: sans-serif;
+        font-size: 24px;
+    }
+    /* HEADER */
+    .header {
+        text-align: center;
+        background-color: #262626;
+        padding-top: 20px;
+    }
+    .header h1 {
+        margin-top: -20px;
+        padding: 15px 0;
+        color: white;
+    }
+    .logout {
+        float: left;
+        padding: 5px 0 0 50px;
+    }
+    .edit {
+        float: right;
+        padding-left: 155px;
+        padding: 5px 50px 0 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <div class="logout">            
+                <a href="/logout">Logout</a>
+            </div>
+            <div class="edit">            
+                <a href="/edit">Edit</a>
+            </div>
+            <h1>Edit Email</h1>
+        </div>
+
+        <form action="/email_action" method="POST">
+            {% csrf_token %}
+            <input type="text" name="email" value="{{ user.email }}">
+            <button type="submit">Update</button>
+        </form>
+
+    </div>
+</body>
+</html>

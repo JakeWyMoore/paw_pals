@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Match</title>
+
+    {% load static %}
+    <style>
+        /* MISC */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+            color: #B5EAD7;
+            font-family: sans-serif;
+        }
+        h1 {
+            font-family: sans-serif;
+        }
+        h2 {
+            font-family: sans-serif;
+            text-transform: uppercase;
+        }
+        h3 { 
+            font-family: sans-serif;
+            font-size: 24px;
+        }
+        p {
+            font-family: sans-serif;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            background-color: #262626;
+            padding-top: 20px;
+        }
+        .header h1 {
+            margin-top: -20px;
+            padding: 15px 0;
+            color: white;
+        }
+        .logout {
+            float: left;
+            padding: 5px 0 0 50px;
+        }
+        .profile {
+            float: right;
+            padding-left: 155px;
+            padding: 5px 50px 0 0;
+        }
+
+        /* PET SECTION */
+        .dog_container {
+            margin: 35px;
+            text-align: center;
+        }
+        .select_dog {
+            vertical-align: top;
+            display: inline-block;
+            margin: 0 auto;
+            width: 400px;
+            border-style: solid;
+            text-align: center;
+            padding: 40px 0;
+        }
+        .dog_info {
+            display: inline-block;
+        }
+        .dog_info h3 {
+            text-transform: uppercase;
+            margin: 15px;
+        }
+        .dog_info p {
+            text-transform: capitalize;
+            margin: 15px;
+        }
+        .select_dog img {
+            display: inline-block;
+            height: 300px;
+            width: 300px;
+            object-fit: cover;
+        }
+        button {
+            font-family: sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            background-color: #B5EAD7;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 15px;
+            color: #262626;
+            outline: none;
+        }
+
+        /* FUTURE FEATURES */
+        /* .like {
+            color: white;
+            background-color: royalblue;
+            padding: 5px 15px;
+            border-radius: 10px;
+        }
+
+        .dislike {
+            color: white;
+            background-color: #f34c4c;
+            padding: 5px 15px;
+            border-radius: 10px;
+        } */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logout">
+                <a href="/logout">Logout</a>
+            </div>
+            <div class="profile">
+                <a href="/select_dog">Profile</a>
+            </div>
+
+            <h1>Match</h1>
+        </div>
+    </div>
+
+    {% for dog in all_dogs %}
+    <div class="dog_container">
+        <div class="select_dog">
+            <div class="dog_info">
+                <p><img src="{{ dog.image.url }}" class="slider-image"></p>
+            
+                <h3>{{ dog.dog_name }}</h3>
+                <p>{{ dog.breed }}</p>
+    
+                <!-- <div class="button-container">
+                    <a href="/match/like/{{ dog.id }}" class="like">Like</a>
+                    <a href="/match/dislike/{{ dog.id }}" class="dislike">Dislike</a>
+                </div> -->
+    
+                <form action="/message/{{ dog.id }}">
+                    <button type="submit">Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>
