@@ -29,7 +29,7 @@ html, body {
 .card {
 	margin-top: 28px;
 	height: 100%;
-	max-height: 446px;
+	max-height: 575px;
 	width: 396px;
 	background: #121212;
 	border: 1px solid #373737;
@@ -50,15 +50,17 @@ html, body {
 	justify-content: space-between;
 }
 
-.head a {
+.head h1 {
 	height: 100%;
 	padding: 0 28px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: rgb(140,140,140);
-	font-size: 20px;
+	color: #B5EAD7;
+	font-size: 24px;
 	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 3px;
 }
 
 .head .selected {
@@ -97,8 +99,15 @@ form {
 	transition: right 0.2s;
 }
 
-.extend form {
-	right: 100%;
+.size {
+	font-size: 17px;
+	color: rgb(220,220,220);
+	padding-right: 10px;
+}
+
+select {
+	border-radius: 5px;
+	padding: 5px 10px;
 }
 
 .inputs {
@@ -119,55 +128,21 @@ form {
 	font-size: 17px;
 	background: #1C1C1C;
 	border-radius: 8px;
-	padding: 16px 18px 16px 51px;
+	padding: 16px 18px;
 	color: rgb(220,220,220);
 }
 
-.input img {
-	width: 16px;
-	position: absolute;
-	left: 19px;
+.input textarea {
+	width: 100%;
+	font-size: 17px;
+	background: #1C1C1C;
+	border-radius: 8px;
+	padding: 16px 18px;
+	color: rgb(220,220,220);
 }
 
-.checkbox {
-	height: 40px;
-	display: flex;
-	align-items: center;
-	position: relative;
-	cursor: pointer;
-}
-
-.checkbox input {
-	position: absolute;
-	opacity: 0;
-	height: 0;
-	width: 0;
-}
-
-.checkbox span {
-	display: flex;
-	align-items: center;
-	color: rgb(110,110,110);
-	font-size: 16px;
-	user-select: none;
-}
-
-.checkbox span:before {
-	content: "";
-	width: 22px;
-	height: 22px;
-	border-radius: 6px;
-	margin-right: 16px;
-	background-color: #1C1C1C;
-}
-
-.checkbox:hover input ~ span:before {
-	background-color: rgb(50,50,50);
-}
-
-.checkbox input:checked ~ span:before {
-	background-image: url(../img/checked.png);
-	background-size: cover;
+input[type="file"] {
+	color: rgb(220,220,220);
 }
 
 .card button {
@@ -182,16 +157,6 @@ form {
 	cursor: pointer;
 }
 
-.testers {
-	color: white;
-	margin-top: 50px;
-	text-align: center;
-}
-
-.testers ul {
-	padding-top: 15px;
-	list-style: none;
-}
 
 
 

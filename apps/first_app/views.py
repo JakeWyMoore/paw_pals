@@ -15,6 +15,8 @@ def login(request):
             request.session['user'] = logged_user[0].username
             request.session['id'] = logged_user[0].id
 
+            print(logged_user)
+
             return redirect('/select_dog')
         
     else:
@@ -66,9 +68,12 @@ def dog_added(request):
 
             return redirect('/select_dog')
 
+    else:
+        return redirect("/")
+
 def select_dog(request):
     one_user = User.objects.get(id=request.session['id'])
-    all_dogs = one_user.my_dogs.all
+    all_dogs = one_user.my_dogs.all()
 
     context = {
         'dogs': all_dogs,

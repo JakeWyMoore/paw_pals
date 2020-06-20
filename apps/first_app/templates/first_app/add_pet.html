@@ -4,109 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Dog</title>
 
     {% load static %}
-    <style>
-        .container {
-            text-align: center;
-            width: 100%;
-        }
-        textarea {
-            width: 75%;
-            height: 100px;
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            border-radius: 10px;
-            outline: none;
-        }
-        .form {
-            margin: 15px auto;
-            background-color: #262626;
-            border-radius: 15px;
-            width: 75%;
-            padding: 25px 0 25px;
-        }
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'first_app/css/add_pet.css' %}">
 
-        .form input[type=text] {
-            width: 75%;
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            border-radius: 10px;
-            outline: none;
-        }
-        
-        .form input[type=textarea] {
-            width: 75%;
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            border-radius: 10px;
-            outline: none;
-        }
-        input[type=submit] {
-            background-color: #B5EAD7;
-            padding: 5px 15px;
-            border: none;
-            border-radius: 10px;
-            margin-top: 15px;
-            color: #262626;
-            outline: none;
-        }
-
-        input[type=file] {
-            width: 75%;
-            text-align: center;
-            color: white;
-        }
-
-        .breed {
-            margin: 5px auto;
-            color: white;
-            display: block;
-            width: 75%;
-            text-align: center;
-        }
-
-        .breed p {
-            display: inline-block;
-            margin-right: 15px;
-        }
-
-        .breed select {
-            display: inline-block;
-        }
-
-    </style>
+    <title>Add Dog</title>
     
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Add Dog</h1>
-            <div class="form">
+
+    <div class="align">
+		<!-- <img class="logo" src="img/logo.svg"> -->
+		<div id="card" class="card">
+			<div class="head">
+				<div></div>
+				<h1>Add Dog</h1>
+				<div></div>
+			</div>
+			<div class="tabs">
+
                 <form action="/dog_added" method="POST" enctype='multipart/form-data'>
-                    {% csrf_token %}
-                    <input type="text" name="dog_name" placeholder="Dog Name"><br>
-                    <div class="breed">
-                        <p>What size is your dog?</p>
-                        <select name="dog_size">
-                            <option value="small">Small</option>
-                            <option value="medium">Medium </option>
-                            <option value="large">Large</option>
-                            <option value="xlarge">X Large</option>
-                        </select><br>
-                    </div>
-                    <input type="text" name="breed" placeholder="Dog Breed"><br>
-                    <textarea name="bio" placeholder="Bio"></textarea><br>
-                    <input type="file" name="image" accept="image/*"><br>
-                    <input type="submit" value="Add Dog">
+					{% csrf_token %}
+					<div class="inputs">
+						<div class="input">
+							<input placeholder="Dog Name" name="dog_name" type="text">
+						</div>
+						<div class="input">
+							<p class="size">What size is your dog?</p>
+                            <select name="dog_size">
+                                <option value="small">Small</option>
+                                <option value="medium">Medium </option>
+                                <option value="large">Large</option>
+                                <option value="xlarge">X Large</option>
+                            </select>
+						</div>
+                        <div class="input">
+                            <input type="text" name="breed" placeholder="Dog Breed"><br>
+                        </div>
+                        <div class="input">
+                            <textarea name="bio" placeholder="Bio"></textarea><br>
+                        </div>
+                        <div class="input">
+                            <input type="file" name="image" accept="image/*"><br>
+                        </div>
+					</div>
+					<button type="submit">Add Dog</button>
                 </form>
-            </div>
+                
+			</div>
         </div>
-    </div>
+	</div>
+
 
 </body>
 </html>

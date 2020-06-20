@@ -4,124 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login & Register</title>
 
     {% load static %}
-    <style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'first_app/css/login_reg.css' %}">
 
-        .container {
-            text-align: center;
-        }
-
-        .sign-up {
-            margin: 0 auto;
-            background-color: #262626;
-            border-radius: 15px;
-
-            width: 75%;
-            padding: 5px 0 25px;
-        }
-
-        .sign-up input[type=text] {
-            width: 75%;
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            border-radius: 10px;
-            outline: none;
-        }
-        .sign-up input[type=password] {
-            width: 75%;
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            border-radius: 10px;
-            outline: none;
-        }
-
-        .sign-up h3 {
-            color: white;
-            font-size: 30px;
-        }
-
-        .sign-in {
-            margin: 15px auto;
-            background-color: #262626;
-            border-radius: 15px;
-            width: 75%;
-            padding: 5px 0 25px;
-        }
-
-        .sign-in input[type=text] {
-            width: 75%;
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            border-radius: 10px;
-            outline: none;
-        }
-        .sign-in input[type=password] {
-            width: 75%;
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            border-radius: 10px;
-            outline: none;
-        }
-
-        .sign-in h3 {
-            color: white;
-            font-size: 30px;
-        }
-
-        input[type=submit] {
-            background-color: #B5EAD7;
-            padding: 5px 15px;
-            border: none;
-            border-radius: 10px;
-            margin-top: 15px;
-            color: #262626;
-            outline: none;
-        }
-        
-    </style>
-    <!-- <link rel="stylesheet" href="{% static 'first_app/css/style.css' %}">    
-    <script src="{% static 'first_app/js/script.js' %}"></script> -->
+    <title>PawPals | Login & Register</title>
 
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>PAW PALS</h1>
-        </div>
-        <div class="sign-up">
-            <h3>Sign Up</h3>
-            <form action="/sign_up" method="POST">
-                {% csrf_token %}
-                <input type="text" name="username" placeholder="Username"><br>
-                <input type="text" name="email" placeholder="Email"><br>
-                <input type="password" name="password" placeholder="Password"><br>
-                <input type="password" name="confirm_password" placeholder="Confirm Password"><br>
-                <input type="submit" value="Sign Up">
-            </form>
-        </div>
-        <div class="sign-in">
-            <h3>Sign In</h3>
-            <form action="/sign_in" method="POST">
-                {% csrf_token %}
-                <input type="text" name="username" placeholder="Username"><br>
-                <input type="password" name="password" placeholder="Password"><br>
-                <input type="submit" value="Sign In">
-            </form>
-        </div>
 
-        {% if messages %}
-        <ul class="error_messages">
-            {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-    </div>
+    <div class="align">
+		<!-- <img class="logo" src="img/logo.svg"> -->
+		<div id="card" class="card">
+			<div class="head">
+				<div></div>
+				<a id="login" class="selected" href="#login">Login</a>
+				<a id="register" href="#register">Register</a>
+				<div></div>
+			</div>
+			<div class="tabs">
+
+				<form action="/sign_in" method="POST">
+					{% csrf_token %}
+					<div class="inputs">
+						<div class="input">
+							<input placeholder="Username" name="username" type="text">
+							<img src="{% static 'first_app/img/user.svg' %}">
+						</div>
+						<div class="input">
+							<input placeholder="Password" name="password" type="password">
+							<img src="{% static 'first_app/img/pass.svg' %}">
+						</div>
+						<label class="checkbox">
+							<input type="checkbox">
+							<span>Remember me</span>
+						</label>
+					</div>
+					<button type="submit">Sign In</button>
+				</form>
+
+				<form action="/sign_up" method="POST">
+					{% csrf_token %}
+					<div class="inputs">
+						<div class="input">
+							<input placeholder="Email" name="email" type="text">
+							<img src="{% static 'first_app/img/mail.svg' %}">
+						</div>
+						<div class="input">
+							<input placeholder="Username" name="username" type="text">
+							<img src="{% static 'first_app/img/user.svg' %}">
+						</div>
+						<div class="input">
+							<input placeholder="Password" name="password" type="password">
+							<img src="{% static 'first_app/img/pass.svg' %}">
+						</div>
+						<div class="input">
+							<input placeholder="Confirm Password" name="confirm_password" type="password">
+							<img src="{% static 'first_app/img/pass.svg' %}">
+						</div>
+					</div>
+					<button type="submit">Register</button>
+				</form>
+
+			</div>
+        </div>
+        <div class="testers">
+            <p>For all employers / testers, use the following information for quick login</p>
+            <ul>
+                <li>Username: tester</li>
+                <li>Username: tester123</li>
+            </ul>
+        </div>
+	</div>
+
+    {% load static %}
+    <script src="{% static 'first_app/js/login_reg/jquery-3.3.1.min.js' %}" ></script>
+    <script src="{% static 'first_app/js/login_reg/index.js' %}" ></script>
+    
 </body>
 </html>
