@@ -5,6 +5,7 @@ urlpatterns = [
     url(r'^$', views.index),
     url(r'^sign_up$', views.sign_up),
     url(r'^add_dog$', views.add_dog),
+    url(r'^add_new_dog$', views.add_new_dog),
     url(r'^logout$', views.logout),
     url(r'^dog_added$', views.dog_added),
     url(r'^profile/(?P<dog_id>\d+)$', views.profile),

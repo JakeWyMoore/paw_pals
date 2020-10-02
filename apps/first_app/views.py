@@ -51,6 +51,9 @@ def logout(request):
 def add_dog(request):
     return render(request, 'first_app/add_pet.html')
 
+def add_new_dog(request):
+    return render(request, 'first_app/add_new_dog.html')
+
 def dog_added(request):
     if 'user' in request.session:
         dog_owner = User.objects.get(id=request.session['id'])

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -85,7 +85,6 @@
         }
 
     </style>
-    
 </head>
 <body>
     <div class="container">
@@ -117,6 +116,74 @@
             </div>
         </div>
     </div>
+
+</body>
+</html>     -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'first_app/css/edit_dog.css' %}">
+
+    <title>Add Dog</title>
+    
+</head>
+<body>
+
+    <div class="align">
+		<!-- <img class="logo" src="img/logo.svg"> -->
+		<div id="card" class="card">
+			<div class="head">
+				<div></div>
+				<h1>Edit {{ dog.dog_name }}</h1>
+				<div></div>
+			</div>
+			<div class="tabs">
+
+                <form action="/dog_updated/{{ dog.id }}" method="POST" enctype='multipart/form-data'>
+					{% csrf_token %}
+					<div class="inputs">
+						<div class="input">
+							<input value="{{ dog.dog_name }}" name="dog_name" type="text">
+						</div>
+						<div class="input">
+							<p class="size">What size is your dog?</p>
+                            <select name="dog_size" value="{{ dog.dog_size }}">
+                                <option value="small">Small</option>
+                                <option value="medium">Medium </option>
+                                <option value="large">Large</option>
+                                <option value="xlarge">X Large</option>
+                            </select>
+						</div>
+                        <div class="input">
+                            <input type="text" name="breed" value="{{ dog.breed }}"><br>
+                        </div>
+                        <div class="input">
+                            <textarea name="bio">{{ dog.bio }}</textarea><br>
+                        </div>
+                        <div class="input">
+                            <input type="file" name="image" accept="image/*"><br>
+                        </div>
+					</div>
+                    <button type="submit">Submit Edit</button>
+                </form>
+
+            </div>
+        </div>
+
+        <form action="/edit">
+            <button class="cancel" type="submit">Cancel</button>
+        </form>
+
+	</div>
+
 
 </body>
 </html>

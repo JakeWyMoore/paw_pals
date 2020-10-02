@@ -1,0 +1,92 @@
+        /* MISC */
+        * {
+          padding: 0;
+          margin: 0;
+      }
+      a {
+          text-decoration: none;
+          color: #B5EAD7;
+          font-family: sans-serif;
+      }
+      h1 {
+          font-family: sans-serif;
+      }
+      h2 {   
+          font-family: sans-serif;         
+          color: #B5EAD7;
+      }
+      h3 { 
+          font-family: sans-serif;
+          font-size: 24px;
+      }
+
+      /* HEADER */
+      .header {
+          text-align: center;
+          background-color: #262626;
+          padding-top: 20px;
+      }
+      .header h1 {
+          margin-top: -20px;
+          padding: 15px 0;
+          color: white;
+      }
+      .logout {
+          float: left;
+          padding: 5px 0 0 50px;
+      }
+      .edit {
+          float: right;
+          padding-left: 155px;
+          padding: 5px 50px 0 0;
+      }
+
+      /* PET SECTION */
+      .dog_container {
+          margin-top: 35px;
+      }
+      .select_dog {
+          margin: 0 auto;
+          width: 400px;
+          display: block;
+          text-align: center;
+      }
+      .border {
+          border: solid;
+          margin: 25px 0;
+          padding: 35px 0;
+      }
+      .dog_info {
+          display: inline-block;
+          width: 75%;
+          margin-top: 35px;
+          vertical-align: top;
+          text-align: center;
+          word-wrap: break-all;
+      }
+      .dog_info h3 {
+          text-transform: uppercase;
+      }
+      .select_dog img {
+          display: inline-block;
+          height: 300px;
+          width: 300px;
+          object-fit: cover;
+      }
+      .add_new {
+          text-align: center;
+      }
+      button {
+          font-family: sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 5px;
+          background-color: #B5EAD7;
+          padding: 10px 30px;
+          border: none;
+          border-radius: 10px;
+          margin-top: 15px;
+          color: #262626;
+          outline: none;
+      }
