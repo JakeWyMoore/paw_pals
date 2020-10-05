@@ -17,21 +17,12 @@ urlpatterns = [
     url(r'^dog_updated/(?P<dog_id>\d+)$', views.dog_updated),
 
 
+    # UPDATE PERSONAL INFORMATION
+    url(r'^personal_information$', views.personal_information),
+    url(r'^personal_information_action$', views.personal_information_action),
 
 
-    # UPDATE USERNAME
-    url(r'^update_username$', views.update_username),
-    url(r'^username_action$', views.username_action),
-
-    # UPDATE EMAIL
-    url(r'^update_email$', views.update_email),
-    url(r'^email_action$', views.email_action),
-
-    # UPDATE PASSWORD
-    url(r'^update_password$', views.update_password),
-    url(r'^password_action$', views.password_action),
-
-
+    # SECOND APP
     url(r'^match/', include('apps.second_app.urls')),
 
 ]

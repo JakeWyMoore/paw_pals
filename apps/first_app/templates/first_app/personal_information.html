@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update Username</title>
+
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'first_app/css/personal_information.css' %}">
+
+</head>
+<body>
+    
+    <div class="align">
+		<!-- <img class="logo" src="img/logo.svg"> -->
+		<div id="card" class="card">
+			<div class="head">
+				<div></div>
+				<h1>Personal Info</h1>
+				<div></div>
+			</div>
+			<div class="tabs">
+
+                <form action="/personal_information_action" method="POST">
+                    {% csrf_token %}
+                    <div class="inputs">
+                        <div class="input">
+                            <input value="{{ user.email }}" name="email" type="text">
+                            <img src="{% static 'first_app/img/mail.svg' %}">
+                        </div>
+                        <div class="input">
+                            <input value="{{ user.username }}" name="username" type="text">
+                            <img src="{% static 'first_app/img/user.svg' %}">
+                        </div>
+                        <div class="input">
+                            <input value="{{ user.password }}" name="password" type="">
+                            <img src="{% static 'first_app/img/pass.svg' %}">
+                        </div>
+                        <div class="input">
+                            <input placeholder="Confirm Password" name="confirm_password" type="">
+                            <img src="{% static 'first_app/img/pass.svg' %}">
+                        </div>
+                    </div>
+                    <button type="submit">Update Information</button>
+                </form>
+                
+		</div>
+    </div>
+
+    <form action="/edit">
+      <button class="cancel" type="submit">Cancel</button>
+    </form>
+
+
+</body>
+</html>

@@ -34,7 +34,7 @@
                         <h3>{{ dog.dog_name }}</h3>
                         <p>{{ dog.breed }}</p>
                         <br>
-                        <h4>Bio:</h4><p>{{ dog.bio }}</p>
+                        <h4>About {{ dog.dog_name }}</h4><p>{{ dog.bio }}</p>
                         <div class="add_new">
                             <form action="/profile/{{ dog.id }}">
                                 <button type="submit">Make Pals</button>
@@ -46,11 +46,11 @@
             </div>  
         </div>
 
-        <div class="add_new">
+        <!-- <div class="add_new">
             <form action="/add_new_dog">
                 <button type="submit">Add New Dog</button>
             </form>
-        </div>
+        </div> -->
         
     </div>
 

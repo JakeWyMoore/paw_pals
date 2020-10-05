@@ -106,66 +106,29 @@ def edit(request):
 
     return render(request, 'first_app/edit.html', context)
 
-# UPDATE USERNAME
-def update_username(request):
+
+# UPDATE PERSONAL INFORMATION
+def personal_information(request):
     the_user = User.objects.get(id=request.session['id'])
 
     context = {
         'user': the_user,
     }
 
-    return render(request, 'first_app/update_username.html', context)
+    return render(request, 'first_app/personal_information.html', context)
 
-def username_action(request):
-    the_user = User.objects.get(id=request.session['id'])
-    the_user.username = request.POST['username']
-    the_user.save()
+def personal_information_action(request):
 
-    context = {
-        'user': the_user,
-    }
+    the_user = User.objects.get(id = request.session['id'])
 
-    return redirect('/edit')
+    if request.POST['password'] == request.POST['confirm_password']: 
+        the_user.username = request.POST['username']
+        the_user.email = request.POST['email']
+        the_user.password = request.POST['password']
+        the_user.save()
 
-# UPDATE EMAIL
-def update_email(request):
-    the_user = User.objects.get(id=request.session['id'])
-
-    context = {
-        'user': the_user,
-    }
-
-    return render(request, 'first_app/update_email.html', context)
-
-def email_action(request):
-    the_user = User.objects.get(id=request.session['id'])
-    the_user.email = request.POST['email']
-    the_user.save()
-
-    context = {
-        'user': the_user,
-    }
-
-    return redirect('/edit')
-
-# UPDATE PASSWORD
-def update_password(request):
-    the_user = User.objects.get(id=request.session['id'])
-
-    context = {
-        'user': the_user,
-    }
-
-    return render(request, 'first_app/update_password.html', context)
-
-def password_action(request):
-    the_user = User.objects.get(id=request.session['id'])
-    the_user.password = request.POST['password']
-    the_user.save()
-
-    context = {
-        'user': the_user,
-    }
+    else:
+        return redirect('/personal_information')
 
     return redirect('/edit')
 
