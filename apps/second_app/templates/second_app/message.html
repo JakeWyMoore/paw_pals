@@ -10,5 +10,17 @@
     <h1>You Are {{ my_dog.dog_name }}</h1>
     <h1>Message {{ the_dog.dog_name }}</h1>
 
+
+    <h1>{{ message.message }}</h1>
+
+    <form action="/message_action" method="POST" enctype='multipart/form-data'>
+        {% csrf_token %}
+        <div class="inputs">
+            <div class="input">
+                <textarea placeholder="Message" name="message" type="text"></textarea>
+            </div>
+        </div>
+        <button type="submit">Send</button>
+    </form>
 </body>
 </html>

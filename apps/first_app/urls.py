@@ -23,6 +23,7 @@ urlpatterns = [
 
 
     # SECOND APP
-    url(r'^match/', include('apps.second_app.urls')),
+    url(r'^match$', include('apps.second_app.urls')),
+    
 
 ]
