@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
 from .models import *
+from django.core.files.storage import FileSystemStorage
 
 def index(request):
     if 'user' not in request.session:

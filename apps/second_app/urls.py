@@ -4,7 +4,7 @@ from . import views
                     
 urlpatterns = [
     url('', views.index),
-    url('message/(?P<dog_id>\d+)', views.message),
+    url(r'^message/(?P<dog_id>\d+)$', views.message),
     url(r'^message_action$', views.message_action),
 
     # url(r'^dislike/(?P<dog_id>\d+)$', views.dislike),
